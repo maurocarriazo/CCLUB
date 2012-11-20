@@ -76,33 +76,75 @@
 		    });
 		    
 		</script>
-		
+		<script type='text/javascript'>
+
+$(document).ready(function()
+{
+$("#firstpane p.menu_head").click(function()
+{
+$(this).css({backgroundImage:"url(https://lh5.googleusercontent.com/-BBN4_uSiCs4/TlQJSAXI5CI/AAAAAAAABnk/cmdGRetC38U/flecha-arriba.png)"}).next("div.menu_body").slideToggle(300).siblings("div.menu_body").slideUp("slow");
+$(this).siblings().css({backgroundImage:"url(https://lh5.googleusercontent.com/-mQHPLQrjxcI/TlQJSHgEsZI/AAAAAAAABno/HbkoM9nbaWQ/flecha-abajo.png)"});
+});
+
+
+$("#secondpane p.menu_head").mouseover(function()
+{
+$(this).css({backgroundImage:"url(https://lh5.googleusercontent.com/-BBN4_uSiCs4/TlQJSAXI5CI/AAAAAAAABnk/cmdGRetC38U/flecha-arriba.png)"}).next("div.menu_body").slideDown(500).siblings("div.menu_body").slideUp("slow");
+$(this).siblings().css({backgroundImage:"url(https://lh5.googleusercontent.com/-mQHPLQrjxcI/TlQJSHgEsZI/AAAAAAAABno/HbkoM9nbaWQ/flecha-abajo.png)"});
+});
+});
+</script>
 	</head>
-	
-	<style type="text/css">
-		ul#demo-block{ margin:0 15px 15px 15px; }
-			ul#demo-block li{ margin:0 0 10px 0; padding:10px; display:inline; float:left; clear:both; color:#aaa; background:url('img/bg-black.png'); font:11px Helvetica, Arial, sans-serif; }
-			ul#demo-block li a{ color:#eee; font-weight:bold; }
-	</style>
+
 
 <body>
 			<div id="header">
 			</div>
 			<div id="mnu">
-				<ul id="menu">
-					<li><a href="index.html" class="active">Inicio</a></li>
-					<li><a href="somos.html">Quienes Somos</a></li>
-					<li><a href="lista.html">Lista de precios</a></li>
-					<li><a href="recomendaciones.html">Recomendaciones</a></li>
-					<li><a href="reserva.php">Reservas Online</a></li>
-					<li><a href="galeria.html">Galeria</a></li>
-					<li><a href="contacto.html">Contáctanos</a></li>
-					<li><a href="sesion.html">Inicio de sesión</a></li>
-					<li><a href="https://www.facebook.com/profile.php?id=100004176480072&fref=ts" target="_blank"><img src="img/fb.png"/>Facebook</a></li>
-					<li><a href="http://www.twitter.com" target="_blank"><img src="img/tw.png"/>Síguenos</a></li>
+				<div id="firstpane" class="menu_list">
 
-				</ul>
+				<p class="menu_head">Alquiler</p>
+				<div class="menu_body">
+				<a href="URL del enlace">Sub pestaña 1</a>
+				<a href="URL del enlace">Sub pestaña 2</a>
+				<a href="URL del enlace">Sub pestaña 3</a>
+				</div>
+
+				<p class="menu_head">Clientes</p>
+				<div class="menu_body">
+				<a href="clientes/add_clientes.html">Sub pestaña 1</a>
+				<a href="URL del enlace">Sub pestaña 2</a>
+				<a href="URL del enlace">Sub pestaña 3</a>
+				</div>
+
+				<p class="menu_head">Peliculas</p>
+				<div class="menu_body">
+				<a href="peliculas/add_pelicula.php">Sub pestaña 1</a>
+				<a href="URL del enlace">Sub pestaña 2</a>
+				<a href="URL del enlace">Sub pestaña 3</a>
+				</div>
+
+				<p class="menu_head">Géneros</p>
+				<div class="menu_body">
+				<a href="genero/add_genero.html">Agregar nuevo Género</a>
+				<a href="URL del enlace">Editar Género</a>
+				<a href="URL del enlace">Eliminar Género</a>
+				</div>
 				
+				<p class="menu_head">Directores</p>
+				<div class="menu_body">
+				<a href="director/add_director.html">Agregar nuevo Director</a>
+				<a href="URL del enlace">Editar Director</a>
+				<a href="URL del enlace">Eliminar Director</a>
+				</div>
+				
+				<p class="menu_head">Actores</p>
+				<div class="menu_body">
+				<a href="actores/add_actores.html">Agregar nuevo Actor</a>
+				<a href="URL del enlace">Editar Actor</a>
+				<a href="URL del enlace">Eliminar Actor</a>
+				</div>
+				</div> 
 			</div>
 
 	<!--Thumbnail Navigation-->

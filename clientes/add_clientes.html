@@ -17,15 +17,15 @@
 		<title>CineClub Venta y alquiler de peliculas DVD</title>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 		
-		<link rel="stylesheet" href="css/css.css" type="text/css" media="screen" />
-		<link rel="stylesheet" href="css/supersized.css" type="text/css" media="screen" />
-		<link rel="stylesheet" href="theme/supersized.shutter.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="../css/css.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="../css/supersized.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="../theme/supersized.shutter.css" type="text/css" media="screen" />
 		
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-		<script type="text/javascript" src="js/jquery.easing.min.js"></script>
+		<script type="text/javascript" src="../js/jquery.easing.min.js"></script>
 		
-		<script type="text/javascript" src="js/supersized.3.2.7.min.js"></script>
-		<script type="text/javascript" src="theme/supersized.shutter.min.js"></script>
+		<script type="text/javascript" src="../js/supersized.3.2.7.min.js"></script>
+		<script type="text/javascript" src="../theme/supersized.shutter.min.js"></script>
 		
 		<script type="text/javascript">
 			
@@ -62,10 +62,10 @@
 					thumb_links				:	1,			// Individual thumb links for each slide
 					thumbnail_navigation    :   0,			// Thumbnail navigation
 					slides 					:  	[			// Slideshow Images
-														{image : 'img/peliculas/sky.jpg', title : 'Agente 007: Skyfall', thumb : 'img/peliculas/sky.jpg', url : 'http://www.nonsensesociety.com/2011/04/maria-kazvan/'},
-														{image : 'img/peliculas/bd.jpg', title : 'Amanecer: Parte2', thumb : 'img/peliculas/bd.jpg', url : 'http://www.nonsensesociety.com/2011/04/maria-kazvan/'},  
-														{image : 'img/peliculas/brave.jpg', title : 'Valiente', thumb : 'img/peliculas/brave.jpg', url : 'http://www.nonsensesociety.com/2011/04/maria-kazvan/'},
-														{image : 'img/peliculas/taken.jpg', title : 'Taken 2', thumb : 'img/peliculas/taken.jpg', url : 'http://www.nonsensesociety.com/2011/03/colin/'},
+														{image : '../img/peliculas/sky.jpg', title : 'Agente 007: Skyfall', thumb : '../img/peliculas/sky.jpg', url : 'http://www.nonsensesociety.com/2011/04/maria-kazvan/'},
+														{image : '../img/peliculas/bd.jpg', title : 'Amanecer: Parte 2', thumb : '../img/peliculas/bd.jpg', url : 'http://www.nonsensesociety.com/2011/04/maria-kazvan/'},  
+														{image : '../img/peliculas/brave.jpg', title : 'Valiente', thumb : '../img/peliculas/brave.jpg', url : 'http://www.nonsensesociety.com/2011/04/maria-kazvan/'},
+														{image : '../img/peliculas/taken.jpg', title : 'Taken 2', thumb : '../img/peliculas/taken.jpg', url : 'http://www.nonsensesociety.com/2011/03/colin/'},
 												],
 												
 					// Theme Options			   
@@ -76,34 +76,31 @@
 		    });
 		    
 		</script>
-		
+
 	</head>
-	
-	<style type="text/css">
-		ul#demo-block{ margin:0 15px 15px 15px; }
-			ul#demo-block li{ margin:0 0 10px 0; padding:10px; display:inline; float:left; clear:both; color:#aaa; background:url('img/bg-black.png'); font:11px Helvetica, Arial, sans-serif; }
-			ul#demo-block li a{ color:#eee; font-weight:bold; }
-	</style>
+
 
 <body>
 			<div id="header">
 			</div>
-			<div id="mnu">
-				<ul id="menu">
-					<li><a href="index.html" class="active">Inicio</a></li>
-					<li><a href="somos.html">Quienes Somos</a></li>
-					<li><a href="lista.html">Lista de precios</a></li>
-					<li><a href="recomendaciones.html">Recomendaciones</a></li>
-					<li><a href="reserva.php">Reservas Online</a></li>
-					<li><a href="galeria.html">Galeria</a></li>
-					<li><a href="contacto.html">Contáctanos</a></li>
-					<li><a href="sesion.html">Inicio de sesión</a></li>
-					<li><a href="https://www.facebook.com/profile.php?id=100004176480072&fref=ts" target="_blank"><img src="img/fb.png"/>Facebook</a></li>
-					<li><a href="http://www.twitter.com" target="_blank"><img src="img/tw.png"/>Síguenos</a></li>
+			
+			<form name="newcliente" action="insertclientes.php" method="post">
+				  <fieldset>
+				  <legend>Agregar Cliente</legend>
+				   <label>Cedula de cliente</label><input type="text" size="40" maxlength="10" name="id_cliente"> <br>
+				   <label>Nombre(s) del Cliente</label><input type="text" size="40" maxlength="10" name="nombre_cliente" >  
+				   <label>Apellidos del Cliente</label><input type="text" size="40" maxlength="10" name="apellido_cliente" >  
+				   <label>Fecha de Nacimiento</label><input type="text" size="40" maxlength="10" name="fecha_cliente" >  
+				   <label>Sexo</label><input type="text" size="40" maxlength="10" name="sexo" >  
+				   <label>Dirección del Cliente</label><input type="text" size="40" maxlength="10" name="direccion" >  
+				   <label>Teléfono</label><input type="text" size="40" maxlength="10" name="tel_cliente" >  
+				   <label>Email</label><input type="text" size="40" maxlength="10" name="email" >  
 
-				</ul>
-				
-			</div>
+				  </fieldset>
+				  <br>
+				  <input type="submit" value="Agregar Cliente">
+				  <input type="reset" value="Limpiar formulario">
+			</form>
 
 	<!--Thumbnail Navigation-->
 	<div id="prevthumb"></div>

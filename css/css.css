@@ -1,11 +1,9 @@
-h1, h2, TH, tr, a, li{
+h1, h2, TH, tr, a, li, label, legend, ul{
 	font-family: Arial,Tahoma,Helvetica,sans-serif;
 }
 
 h1 {
-	color: #FFFFFF;
-	font-size:40px;
-	margin-left:100px;
+	font-size:20px;
 }
 
 h2 {
@@ -28,23 +26,62 @@ tr{
 	color: #365abc;
 }
 
+form{
+width:600px;
+}
+
+label{
+color: #FFFFFF;
+display: block;
+}
+label:after { content: ": " }
+
+
+fieldset legend {
+background: #FFFFFF;
+padding: 6px;
+}
+
+#info_somos {
+	width:800px;
+	background-color:#FFFFFF;
+	opacity:0.8;
+	padding:40px;
+	margin-right:40px;
+	margin-top:40px;
+	float:right;
+}
+
 #mnu {	
 	float:right;
-	padding-top:130px;
+	
+}
+
+#header {
+	padding:0;
+	width: 400px;
+	height: 158px;
+	background-image: url("../img/CC.png");
+	background-color:#FFFFFF;
+	opacity:0.8;
 }
 
 #menu {
 	padding:0;
 	width: 100%;
-	height: 45px;
+	height: 300px;
+	background-color:#c60000;
+	opacity:0.8;
+
 }
 
 #menu  li{
-	display: inline;
+	display: block;
 
 }
 
-#menu li a {  
+#menu li a {
+	width:100%;
 	font-family: Arial,Tahoma,Helvetica,sans-serif;
     font-size:15px;  
     text-decoration: none;  
@@ -56,6 +93,7 @@ tr{
 
 #menu li .active {  
     background-color: #950000;
+	width:100%;
 }   
 
 #menu li a:hover {  
@@ -78,11 +116,7 @@ tr{
 	color: #99CCFF;
 }
 
-#header {
-	background-image: url("../imagenes/head.png");
-	width: 100%;
-	height:225px;
-}
+
 
 #main {
 	background-image: url("../imagenes/fondo.png");
@@ -110,4 +144,41 @@ tr{
 
 #datos {
 	height:300px;
+}
+
+
+
+/* Menú vertical desplegable
+----------------------------------------------- */
+.menu_list {
+width: 180px; /* Ancho del menú */
+}
+.menu_head {
+padding: 5px 10px;
+color:#848484; /* Color de las pestañas principales */
+cursor: pointer;
+position: relative;
+margin:1px;
+margin-left:0;
+margin-right:0;
+font-weight:bold;
+background-color: #424242; /* Color de fondo */
+background-image: url(https://lh5.googleusercontent.com/-mQHPLQrjxcI/TlQJSHgEsZI/AAAAAAAABno/HbkoM9nbaWQ/flecha-abajo.png);
+background-position:center right;
+background-repeat:no-repeat;
+}
+.menu_body {
+display:none;
+}
+.menu_body a{
+display:block;
+color:#848484; /* Color de los enlaces */
+background-color:#BDBDBD; /* Color de fondo de los enlaces */
+padding-left:10px;
+font-weight:bold;
+text-decoration:none;
+}
+.menu_body a:hover{
+color: #000000; /* Color de los enlaces al pasar el cursor */
+text-decoration:underline;
 }

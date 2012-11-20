@@ -17,15 +17,15 @@
 		<title>CineClub Venta y alquiler de peliculas DVD</title>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 		
-		<link rel="stylesheet" href="css/css.css" type="text/css" media="screen" />
-		<link rel="stylesheet" href="css/supersized.css" type="text/css" media="screen" />
-		<link rel="stylesheet" href="theme/supersized.shutter.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="../css/css.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="../css/supersized.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="../theme/supersized.shutter.css" type="text/css" media="screen" />
 		
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-		<script type="text/javascript" src="js/jquery.easing.min.js"></script>
+		<script type="text/javascript" src="../js/jquery.easing.min.js"></script>
 		
-		<script type="text/javascript" src="js/supersized.3.2.7.min.js"></script>
-		<script type="text/javascript" src="theme/supersized.shutter.min.js"></script>
+		<script type="text/javascript" src="../js/supersized.3.2.7.min.js"></script>
+		<script type="text/javascript" src="../theme/supersized.shutter.min.js"></script>
 		
 		<script type="text/javascript">
 			
@@ -62,10 +62,10 @@
 					thumb_links				:	1,			// Individual thumb links for each slide
 					thumbnail_navigation    :   0,			// Thumbnail navigation
 					slides 					:  	[			// Slideshow Images
-														{image : 'img/peliculas/sky.jpg', title : 'Agente 007: Skyfall', thumb : 'img/peliculas/sky.jpg', url : 'http://www.nonsensesociety.com/2011/04/maria-kazvan/'},
-														{image : 'img/peliculas/bd.jpg', title : 'Amanecer: Parte2', thumb : 'img/peliculas/bd.jpg', url : 'http://www.nonsensesociety.com/2011/04/maria-kazvan/'},  
-														{image : 'img/peliculas/brave.jpg', title : 'Valiente', thumb : 'img/peliculas/brave.jpg', url : 'http://www.nonsensesociety.com/2011/04/maria-kazvan/'},
-														{image : 'img/peliculas/taken.jpg', title : 'Taken 2', thumb : 'img/peliculas/taken.jpg', url : 'http://www.nonsensesociety.com/2011/03/colin/'},
+														{image : '../img/peliculas/sky.jpg', title : 'Agente 007: Skyfall', thumb : '../img/peliculas/sky.jpg', url : 'http://www.nonsensesociety.com/2011/04/maria-kazvan/'},
+														{image : '../img/peliculas/bd.jpg', title : 'Amanecer: Parte 2', thumb : '../img/peliculas/bd.jpg', url : 'http://www.nonsensesociety.com/2011/04/maria-kazvan/'},  
+														{image : '../img/peliculas/brave.jpg', title : 'Valiente', thumb : '../img/peliculas/brave.jpg', url : 'http://www.nonsensesociety.com/2011/04/maria-kazvan/'},
+														{image : '../img/peliculas/taken.jpg', title : 'Taken 2', thumb : '../img/peliculas/taken.jpg', url : 'http://www.nonsensesociety.com/2011/03/colin/'},
 												],
 												
 					// Theme Options			   
@@ -76,34 +76,78 @@
 		    });
 		    
 		</script>
-		
+
 	</head>
-	
-	<style type="text/css">
-		ul#demo-block{ margin:0 15px 15px 15px; }
-			ul#demo-block li{ margin:0 0 10px 0; padding:10px; display:inline; float:left; clear:both; color:#aaa; background:url('img/bg-black.png'); font:11px Helvetica, Arial, sans-serif; }
-			ul#demo-block li a{ color:#eee; font-weight:bold; }
-	</style>
 
 <body>
 			<div id="header">
 			</div>
-			<div id="mnu">
-				<ul id="menu">
-					<li><a href="index.html" class="active">Inicio</a></li>
-					<li><a href="somos.html">Quienes Somos</a></li>
-					<li><a href="lista.html">Lista de precios</a></li>
-					<li><a href="recomendaciones.html">Recomendaciones</a></li>
-					<li><a href="reserva.php">Reservas Online</a></li>
-					<li><a href="galeria.html">Galeria</a></li>
-					<li><a href="contacto.html">Contáctanos</a></li>
-					<li><a href="sesion.html">Inicio de sesión</a></li>
-					<li><a href="https://www.facebook.com/profile.php?id=100004176480072&fref=ts" target="_blank"><img src="img/fb.png"/>Facebook</a></li>
-					<li><a href="http://www.twitter.com" target="_blank"><img src="img/tw.png"/>Síguenos</a></li>
+			
+			<form name="newmovie" action="insertpelicula.php" method="post">
+				  <fieldset>
+				  <legend>Agregar Película</legend>
+				   <label>Id Película</label><input type="text" size="40" maxlength="10" name="id_peli"> <br>
+				   <label>Titulo</label><input type="text" size="40" maxlength="10" name="titulo" >  
+				   <label>Año</label><input type="text" size="40" maxlength="10" name="anio" >  
+				   <label>Duración</label><input type="text" size="40" maxlength="10" name="duracion" >  
+				   <label>Sinopis</label><input type="text" size="40" maxlength="10" name="sinopsis" >  
+				   <label>Cantidad</label><input type="text" size="40" maxlength="10" name="cantidad" >  
+				   <label>Disponibilidad</label>
+				   <select name="disponibilidad">
+					   <option value="true">Si</option>
+					   <option value="false">No</option>
+				   </select>
+				   <label>Género</label>
+					<select name="genero">
+						<option value="">Seleccione un Género</option>
+						<?
+						include("../conectar.php");
+						$consulta="select nombre_genero,nombre_genero from tbl_generos";
+						$result=mysql_query($consulta);
+						?>						
+						<?
+						while($fila=mysql_fetch_row($result)){
+							echo "<option value='".$fila['0']."'>".$fila['1']."</option>";
+						}
+						?>
+					</select>
+				   <label>Director</label>
+					<select name="director">
+						<option value="">Seleccione un Director</option>
+						<?
+						include("../conectar.php");
+						$consulta="select nombre_director,nombre_director from tbl_director";
+						$result=mysql_query($consulta);
+						?>						
 
-				</ul>
-				
-			</div>
+						<?
+						while($fila=mysql_fetch_row($result)){
+							echo "<option value='".$fila['0']."'>".$fila['1']."</option>";
+						}
+						?>
+					</select>
+				   <label>Actores</label>
+					<select name="actor">
+						<option value="">Seleccione un Actor</option>
+						<?
+						include("../conectar.php");
+						$consulta="select nombre_actor,nombre_actor from tbl_actores";
+						$result=mysql_query($consulta);
+						?>						
+
+						<?
+						while($fila=mysql_fetch_row($result)){
+							echo "<option value='".$fila['0']."'>".$fila['1']."</option>";
+						}
+						?>
+					</select>
+				   <label>Carátula</label><input type="text" size="40" maxlength="10" name="genero" >  
+
+				  </fieldset>
+				  <br>
+				  <input type="submit" value="Agregar Género">
+				  <input type="reset" value="Limpiar formulario">
+			</form>
 
 	<!--Thumbnail Navigation-->
 	<div id="prevthumb"></div>
